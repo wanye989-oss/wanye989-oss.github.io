@@ -1,0 +1,72 @@
+/* =========================================================
+   
+1.全站字體與大小寫轉換控制========================================================= */
+body, h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6, .subheading {
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    text-transform: none; /* 取消 Bootstrap 預設強制英文字母大寫 /
+}
+
+/ 針對履歷的大標題 (h2)，保留大寫視覺樣式 /
+h2 {
+    text-transform: uppercase;
+}
+
+/ =========================================================
+   
+2.全站主題色彩客製化 (質感墨綠色系)========================================================= */
+:root {
+    --bs-primary-rgb: 34, 87, 74; /* 質感墨綠 RGB /
+    --bs-link-color: rgb(34, 87, 74);
+    --bs-link-hover-color: rgb(20, 56, 47);
+}
+
+/ 同步修改社群圖示按鈕 Hover 時的背景色彩 /
+.social-icons .social-icon:hover {
+    background-color: rgb(34, 87, 74);
+}
+
+/ =========================================================
+   
+3.履歷內容區塊背景優化========================================================= */
+.resume-section {
+    background-color: rgb(247, 249, 248); /* 極簡暖灰白背景 /
+}
+
+/ =========================================================
+   
+4.Waterfall 瀑布流風格作品集樣式 (3 欄錯落排版)========================================================= */
+.waterfall-container {
+    column-count: 3; /* 電腦螢幕切分為 3 欄瀑布流 /
+    column-gap: 20px;
+}
+
+.waterfall-item {
+    break-inside: avoid; / 防止卡片被欄位裁切跨欄 /
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.waterfall-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/ 平板螢幕自動調整為 2 欄 /
+@media (max-width: 992px) {
+    .waterfall-container {
+        column-count: 2;
+    }
+}
+
+/ 手機版自動還原為單欄顯示 */
+@media (max-width: 768px) {
+    .waterfall-container {
+        column-count: 1;
+    }
+}
